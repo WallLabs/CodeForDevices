@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B0F74F0-97E4-4055-AA4A-18B8EB3C59F6}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Build.cmd = Build.cmd
+		NuGet.config = NuGet.config
+		Release.cmd = Release.cmd
+		Version.cmd = Version.cmd
+		Version.ps1 = Version.ps1
+		Version.txt = Version.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{D8030303-AD87-4FE3-A904-CF0036FD51C8}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\Code for PowerShell Release Notes.md = Dependencies\Code for PowerShell Release Notes.md
+		Dependencies\Code for Windows Release Notes.md = Dependencies\Code for Windows Release Notes.md
+		Dependencies\CodeForPowerShell.Version.txt = Dependencies\CodeForPowerShell.Version.txt
+		Dependencies\CodeForWindows.Version.txt = Dependencies\CodeForWindows.Version.txt
+		Dependencies\Update.cmd = Dependencies\Update.cmd
+		Dependencies\Variables.cmd = Dependencies\Variables.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{89F65598-A6E1-4757-AF8E-47E9552C10CD}"
+	ProjectSection(SolutionItems) = preProject
+		Common\AssemblyInfoCore.cs = Common\AssemblyInfoCore.cs
+		Common\AssemblyInfoGlobal.cs = Common\AssemblyInfoGlobal.cs
+		Common\Code for Devices on Windows.snk = Common\Code for Devices on Windows.snk
+		Common\Dictionary.xml = Common\Dictionary.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerShell", "PowerShell", "{0172CCFE-FB6A-4460-A232-96F78A055DC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeForPowerShell.VisualStudio", "CodeForPowerShell.VisualStudio", "{22866E96-1AA0-40D0-908E-C48692AAABF6}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\PowerShell\CodeForPowerShell.VisualStudio\CodeForPowerShell.VisualStudio.psd1 = Dependencies\PowerShell\CodeForPowerShell.VisualStudio\CodeForPowerShell.VisualStudio.psd1
+		Dependencies\PowerShell\CodeForPowerShell.VisualStudio\CodeForPowerShell.VisualStudio.Version.psm1 = Dependencies\PowerShell\CodeForPowerShell.VisualStudio\CodeForPowerShell.VisualStudio.Version.psm1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{077B3EE7-EFD5-4593-9D9F-D70DE39CE2AD}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Release Notes.md = Documentation\Release Notes.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0172CCFE-FB6A-4460-A232-96F78A055DC5} = {D8030303-AD87-4FE3-A904-CF0036FD51C8}
+		{22866E96-1AA0-40D0-908E-C48692AAABF6} = {0172CCFE-FB6A-4460-A232-96F78A055DC5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1D8B26A-1387-4BF1-ADC3-87E34E4CF658}
+	EndGlobalSection
+EndGlobal

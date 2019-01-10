@@ -1,0 +1,48 @@
+namespace CodeForDevices.WindowsUniversal.Hardware.Buses
+{
+    static runtimeclass GpioExtensions
+    {
+        static Windows.Devices.Gpio.GpioPin Connect(UInt32 busNumber, UInt32 pinNumber, Windows.Devices.Gpio.GpioPinDriveMode driveMode, Windows.Devices.Gpio.GpioSharingMode sharingMode);
+    }
+
+    runtimeclass GpioSwdPort
+    {
+        GpioSwdPort(UInt32 busNumber, UInt32 clockPinNumber, UInt32 ioPinNumber);
+        void Reset();
+        UInt8 ReadByte();
+        IVector<UInt8> ReadBytes();
+        void WriteByte(UInt8 writeData);
+        void WriteBytes(IVectorView<UInt8> writeData);
+    }
+
+    static runtimeclass I2cExtensions
+    {
+        static UInt32 MaximumTransferSize { get; };
+        static Windows.Devices.I2c.I2cDevice Connect(UInt32 busNumber, UInt32 address, Windows.Devices.I2c.I2cBusSpeed speed, Windows.Devices.I2c.I2cSharingMode sharingMode);
+        static UInt8 ReadByte(Windows.Devices.I2c.I2cDevice device);
+        static IVector<UInt8> ReadBytes(Windows.Devices.I2c.I2cDevice device, UInt32 size);
+        [default_overload]
+        static UInt8 WriteReadByte(Windows.Devices.I2c.I2cDevice device, UInt8 writeData);
+        static UInt8 WriteReadByte(Windows.Devices.I2c.I2cDevice device, IVectorView<UInt8> writeData);
+        [default_overload]
+        static IVector<UInt8> WriteReadBytes(Windows.Devices.I2c.I2cDevice device, UInt8 writeData, UInt32 size);
+        static IVector<UInt8> WriteReadBytes(Windows.Devices.I2c.I2cDevice device, IVectorView<UInt8> writeData, UInt32 size);
+        [default_overload]
+        static Boolean WriteReadBit(Windows.Devices.I2c.I2cDevice device, UInt8 writeData, UInt8 mask);
+        static Boolean WriteReadBit(Windows.Devices.I2c.I2cDevice device, IVectorView<UInt8> writeData, UInt8 mask);
+        static void WriteByte(Windows.Devices.I2c.I2cDevice device, UInt8 data);
+        static void WriteBytes(Windows.Devices.I2c.I2cDevice device, IVectorView<UInt8> data);
+        [default_overload]
+        static void WriteJoinByte(Windows.Devices.I2c.I2cDevice device, UInt8 data1, UInt8 data2);
+        static void WriteJoinByte(Windows.Devices.I2c.I2cDevice device, IVectorView<UInt8> data1, UInt8 data2);
+        [default_overload]
+        static void WriteJoinBytes(Windows.Devices.I2c.I2cDevice device, UInt8 data1, IVectorView<UInt8> data2);
+        static void WriteJoinBytes(Windows.Devices.I2c.I2cDevice device, IVectorView<UInt8> data1, IVectorView<UInt8> data2);
+        static UInt8 WriteReadWriteBit(Windows.Devices.I2c.I2cDevice device, UInt8 writeData, UInt8 mask, Boolean value);
+    }
+
+    static runtimeclass SpiExtensions
+    {
+        static Windows.Devices.Spi.SpiDevice Connect(UInt32 busNumber, UInt32 chipSelectLine, Windows.Devices.Spi.SpiMode mode, UInt32 dataBitLength, UInt32 clockFrequency, Windows.Devices.Spi.SpiSharingMode sharingMode);
+    }
+}

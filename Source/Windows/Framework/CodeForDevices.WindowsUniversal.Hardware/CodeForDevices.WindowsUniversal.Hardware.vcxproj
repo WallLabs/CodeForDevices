@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.props')" />
+  <Import Project="..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NETCore.UniversalWindowsPlatform.props" Condition="Exists('..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NETCore.UniversalWindowsPlatform.props')" />
   <Import Project="..\..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props" Condition="Exists('..\..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props')" />
-  <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.props')" />
   <Import Project="..\..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
   <Import Project="..\..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props')" />
   <Import Project="..\..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props')" />
@@ -268,6 +269,11 @@
     <ClInclude Include="Buses\I2cExtensions.h" />
     <ClInclude Include="Buses\SpiExtensions.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Protocols\SerialWireDebug\SwdDebugPortIdRegisterBits.h" />
+    <ClInclude Include="Protocols\SerialWireDebug\SwdRegisterReadAddress.h" />
+    <ClInclude Include="Protocols\SerialWireDebug\SwdRegisterWriteAddress.h" />
+    <ClInclude Include="Protocols\SerialWireDebug\SwdRequestBits.h" />
+    <ClInclude Include="Protocols\SerialWireDebug\SwdResponseBits.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Buses\GpioExtensions.cpp" />
@@ -279,7 +285,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="CodeForDevices.WindowsUniversal.Hardware.nuspec" />
+    <None Include="CodeForDevices.WindowsUniversal.Hardware.targets" />
     <None Include="Module.def" />
+    <None Include="Package.cmd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -287,7 +296,8 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.targets')" />
+    <Import Project="..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NetCore.UniversalWindowsPlatform.targets" Condition="Exists('..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NetCore.UniversalWindowsPlatform.targets')" />
+    <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -298,8 +308,10 @@
     <Error Condition="!Exists('..\..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.NetCore.Analyzers.2.9.8\build\Microsoft.NetCore.Analyzers.props'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.NetFramework.Analyzers.2.9.8\build\Microsoft.NetFramework.Analyzers.props'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.8\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.191217.1\build\native\Microsoft.Windows.CppWinRT.targets'))" />
     <Error Condition="!Exists('..\..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Text.Analyzers.2.6.4\build\Text.Analyzers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NETCore.UniversalWindowsPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NETCore.UniversalWindowsPlatform.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NetCore.UniversalWindowsPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.NETCore.UniversalWindowsPlatform.6.2.9\build\Microsoft.NetCore.UniversalWindowsPlatform.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.200203.5\build\native\Microsoft.Windows.CppWinRT.targets'))" />
   </Target>
 </Project>

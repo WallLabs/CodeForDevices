@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>CodeForDevices.WindowsUniversal.Hardware</id>
+    <version>1.0</version>
+    <title>CodeForDevices.WindowsUniversal.Hardware</title>
+    <authors>Wall Labs</authors>
+    <owners>Wall Labs</owners>
+    <language>en-US</language>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>https://github.com/WallLabs/CodeForDevices</projectUrl>
+    <!-- TODO: Icon -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright Wall Labs, All Rights Reserved.</copyright>
+    <summary>Hardware framework for the Windows Universal platform.</summary>
+    <description>
+      Simplifies and enhances integration of hardware running on Windows Universal compatible platforms.
+    </description>
+    <tags>WallLabs Wall Labs Hardware SDK IoT</tags>
+    <releaseNotes>
+      ## Version 1.0.2001.5### (2020.01.05)
+      * Updated and refactored solution with working build.
+      * Refactored interfaces for better C++/WinRT array type standards compliance.
+      * I2C bus implementation code complete, ready for internal testing.
+      * Other buses still incomplete but should be quick to implement once I2C passes tests.
+      * Public API uses only CLS compliant types (removal of unsigned integer except for byte representation).
+    </releaseNotes>
+    <dependencies>
+      <group targetFramework="UAP,Version=v10.0">
+        <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="6.2.9" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+
+    <!-- WinMd and IntelliSense -->
+    <file src="x64\CodeForDevices.WindowsUniversal.Hardware.xml" target="lib\uap10.0" />
+    <file src="x64\CodeForDevices.WindowsUniversal.Hardware.winmd" target="lib\uap10.0" />
+    <file src="x64\CodeForDevices.WindowsUniversal.Hardware.Buses.winmd" target="lib\uap10.0" />
+
+    <!-- DLLs and resources -->
+    <file src="ARM\CodeForDevices.WindowsUniversal.Hardware.dll" target="runtimes\win10-arm\native" />
+    <file src="ARM\CodeForDevices.WindowsUniversal.Hardware.pri" target="runtimes\win10-arm\native" />
+    <file src="ARM64\CodeForDevices.WindowsUniversal.Hardware.dll" target="runtimes\win10-arm64\native" />
+    <file src="ARM64\CodeForDevices.WindowsUniversal.Hardware.pri" target="runtimes\win10-arm64\native" />
+    <file src="x64\CodeForDevices.WindowsUniversal.Hardware.dll" target="runtimes\win10-x64\native" />
+    <file src="x64\CodeForDevices.WindowsUniversal.Hardware.pri" target="runtimes\win10-x64\native" />
+    <file src="x86\CodeForDevices.WindowsUniversal.Hardware.dll" target="runtimes\win10-x86\native" />
+    <file src="x86\CodeForDevices.WindowsUniversal.Hardware.pri" target="runtimes\win10-x86\native" />
+
+    <!-- MSBuild Targets -->
+    <file src="..\..\CodeForDevices.WindowsUniversal.Hardware.targets" target="build\native" />
+
+  </files>
+</package>

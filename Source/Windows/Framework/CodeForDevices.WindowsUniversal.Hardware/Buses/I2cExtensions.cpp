@@ -9,7 +9,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
 {
 #pragma region Connect
 
-    Windows::Devices::I2c::I2cDevice I2cExtensions::Connect(uint32_t busNumber, uint32_t address, Windows::Devices::I2c::I2cBusSpeed const& speed, Windows::Devices::I2c::I2cSharingMode const& sharingMode)
+    Windows::Devices::I2c::I2cDevice I2cExtensions::Connect(int32_t busNumber, int32_t address, Windows::Devices::I2c::I2cBusSpeed const& speed, Windows::Devices::I2c::I2cSharingMode const& sharingMode)
     {
         // Validate
         if (busNumber < 0) throw hresult_invalid_argument(L"busNumber");
@@ -41,10 +41,10 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
     uint8_t I2cExtensions::ReadByte(Windows::Devices::I2c::I2cDevice const& device)
     {
         // Call overloaded method and return result
-        return ReadBytes(device, 1).GetAt(0);
+        return ReadBytes(device, 1)[0];
     }
 
-    Windows::Foundation::Collections::IVector<uint8_t> I2cExtensions::ReadBytes(Windows::Devices::I2c::I2cDevice const& device, uint32_t size)
+    com_array<uint8_t> I2cExtensions::ReadBytes(Windows::Devices::I2c::I2cDevice const& device, int32_t size)
     {
         // Create buffer
         auto readBuffer = std::vector<uint8_t>(size, 0);
@@ -53,7 +53,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         device.Read(readBuffer);
 
         // Return buffer
-        return single_threaded_vector<uint8_t>(move(readBuffer));
+        return com_array<uint8_t>(move(readBuffer));
     }
 
     uint8_t I2cExtensions::WriteReadByte(Windows::Devices::I2c::I2cDevice const& device, uint8_t writeData)
@@ -62,7 +62,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         auto writeBuffer = array_view<uint8_t const>({ writeData });
 
         // Call overloaded method
-        return WriteReadBytes(device, writeBuffer, 1).GetAt(0);
+        return WriteReadBytes(device, writeBuffer, 1)[0];
     }
 
     uint8_t I2cExtensions::WriteReadByte(Windows::Devices::I2c::I2cDevice const& device, array_view<uint8_t const> writeData)
@@ -71,10 +71,10 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         auto readBuffer = WriteReadBytes(device, writeData, 1);
 
         // Return first uint8_t in buffer
-        return readBuffer.GetAt(0);
+        return readBuffer[0];
     }
 
-    Windows::Foundation::Collections::IVector<uint8_t> I2cExtensions::WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, uint8_t writeData, uint32_t size)
+    com_array<uint8_t> I2cExtensions::WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, uint8_t writeData, int32_t size)
     {
         // Cast data to correct type
         auto writeBuffer = array_view<uint8_t const>({ writeData });
@@ -83,7 +83,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         return WriteReadBytes(device, writeBuffer, size);
     }
 
-    Windows::Foundation::Collections::IVector<uint8_t> I2cExtensions::WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, array_view<uint8_t const> writeData, uint32_t size)
+    com_array<uint8_t> I2cExtensions::WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, array_view<uint8_t const> writeData, int32_t size)
     {
         // Create buffers
         auto readBuffer = std::vector<uint8_t>(size);
@@ -95,7 +95,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         device.WriteRead(writeBuffer, readBuffer);
 
         // Return buffer
-        return single_threaded_vector<uint8_t>(std::move(readBuffer));
+        return com_array<uint8_t>(std::move(readBuffer));
     }
 
     bool I2cExtensions::WriteReadBit(Windows::Devices::I2c::I2cDevice const& device, uint8_t writeData, uint8_t mask)

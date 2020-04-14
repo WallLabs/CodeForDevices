@@ -42,6 +42,11 @@ msbuild "%~dp0Code for Devices on Windows.sln" /p:Configuration=%ConfigurationNa
 if %errorlevel% neq 0 goto Error
 
 echo.
+echo Packaging...
+call "%~dp0Framework\CodeForDevices.WindowsUniversal.Hardware\Package.cmd" %ConfigurationName%
+if %errorlevel% neq 0 goto Error
+
+echo.
 echo Copying components...
 robocopy "%~dp0Framework\CodeForDevices.WindowsUniversal.Hardware\bin\%ConfigurationName%" "%~dp0Temp\Build\%ConfigurationName%\Components" /s
 if %errorlevel% gtr 7 goto Error

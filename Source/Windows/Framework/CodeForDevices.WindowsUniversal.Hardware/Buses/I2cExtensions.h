@@ -18,7 +18,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// This is a confirmed soft limitation by Microsoft, it should be 64K.
         /// </summary>
         /// <seealso href="https://social.msdn.microsoft.com/Forums/en-US/e938900f-b732-41dc-95f6-058a39dac31d/i2c-transfer-limit-of-16384-bytes-on-raspberry-pi-2?forum=WindowsIoT"/>
-        static uint32_t MaximumTransferSize();
+        static int32_t MaximumTransferSize();
 
 #pragma endregion
 
@@ -32,7 +32,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <param name="speed">Bus speed.</param>
         /// <param name="sharingMode">Sharing mode.</param>
         /// <returns>Device when the bus controller and device exist, otherwise null.</returns>
-        static Windows::Devices::I2c::I2cDevice Connect(uint32_t busNumber, uint32_t address, Windows::Devices::I2c::I2cBusSpeed const& speed, Windows::Devices::I2c::I2cSharingMode const& sharingMode);
+        static Windows::Devices::I2c::I2cDevice Connect(int32_t busNumber, int32_t address, Windows::Devices::I2c::I2cBusSpeed const& speed, Windows::Devices::I2c::I2cSharingMode const& sharingMode);
 
 #pragma endregion
 
@@ -51,7 +51,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <param name="device">Device to use.</param>
         /// <param name="size">Amount of data to read.</param>
         /// <returns>Read data bytes.</returns>
-        static Windows::Foundation::Collections::IVector<uint8_t> ReadBytes(Windows::Devices::I2c::I2cDevice const& device, uint32_t size);
+        static com_array<uint8_t> ReadBytes(Windows::Devices::I2c::I2cDevice const& device, int32_t size);
 
         /// <summary>
         /// Writes data then reads a single byte result.
@@ -76,7 +76,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <param name="writeData">Data to write.</param>
         /// <param name="size">Amount of data to read.</param>
         /// <returns>Read data bytes.</returns>
-        static Windows::Foundation::Collections::IVector<uint8_t> WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, uint8_t writeData, uint32_t size);
+        static com_array<uint8_t> WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, uint8_t writeData, int32_t size);
 
         /// <summary>
         /// Writes data then reads one or more bytes.
@@ -85,7 +85,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <param name="writeData">Data to write.</param>
         /// <param name="size">Amount of data to read.</param>
         /// <returns>Read data bytes.</returns>
-        static Windows::Foundation::Collections::IVector<uint8_t> WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, array_view<uint8_t const> writeData, uint32_t size);
+        static com_array<uint8_t> WriteReadBytes(Windows::Devices::I2c::I2cDevice const& device, array_view<uint8_t const> writeData, int32_t size);
 
         /// <summary>
         /// Writes data, reads a byte result then tests on or more bits.

@@ -29,6 +29,21 @@
     <ClInclude Include="Buses\SpiExtensions.h">
       <Filter>Buses</Filter>
     </ClInclude>
+    <ClInclude Include="Protocols\SerialWireDebug\SwdDebugPortIdRegisterBits.h">
+      <Filter>Protocols\SerialWireDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocols\SerialWireDebug\SwdRegisterReadAddress.h">
+      <Filter>Protocols\SerialWireDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocols\SerialWireDebug\SwdRegisterWriteAddress.h">
+      <Filter>Protocols\SerialWireDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocols\SerialWireDebug\SwdRequestBits.h">
+      <Filter>Protocols\SerialWireDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocols\SerialWireDebug\SwdResponseBits.h">
+      <Filter>Protocols\SerialWireDebug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Buses">
@@ -44,6 +59,9 @@
   <ItemGroup>
     <None Include="Module.def" />
     <None Include="packages.config" />
+    <None Include="CodeForDevices.WindowsUniversal.Hardware.nuspec" />
+    <None Include="Package.cmd" />
+    <None Include="CodeForDevices.WindowsUniversal.Hardware.targets" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Buses\Buses.idl">

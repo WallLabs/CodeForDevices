@@ -19,7 +19,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <param name="driveMode">Drive mode.</param>
         /// <param name="sharingMode">Sharing mode.</param>
         /// <returns>Pin when controller and device exist, otherwise null.</returns>
-        static Windows::Devices::Gpio::GpioPin Connect(uint32_t busNumber, uint32_t pinNumber, Windows::Devices::Gpio::GpioPinDriveMode const& driveMode, Windows::Devices::Gpio::GpioSharingMode const& sharingMode);
+        static Windows::Devices::Gpio::GpioPin Connect(int32_t busNumber, int32_t pinNumber, Windows::Devices::Gpio::GpioPinDriveMode const& driveMode, Windows::Devices::Gpio::GpioSharingMode const& sharingMode);
     };
 }
 

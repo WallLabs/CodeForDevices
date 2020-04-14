@@ -5,7 +5,7 @@ using namespace winrt::Windows::Devices::Gpio;
 
 namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementation
 {
-    GpioPin GpioExtensions::Connect(uint32_t busNumber, uint32_t pinNumber, GpioPinDriveMode const& driveMode, GpioSharingMode const& sharingMode)
+    GpioPin GpioExtensions::Connect(int32_t busNumber, int32_t pinNumber, GpioPinDriveMode const& driveMode, GpioSharingMode const& sharingMode)
     {
         // Validate
         if (busNumber < 0) throw hresult_invalid_argument(L"busNumber");

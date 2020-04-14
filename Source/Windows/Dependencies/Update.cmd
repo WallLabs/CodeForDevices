@@ -25,6 +25,11 @@ git clone --branch=master git://github.com/WallLabs/CodeForWindows "%~dp0Temp\Co
 if %errorlevel% neq 0 goto Error
 
 echo.
+echo Downloading latest NuGet CLI...
+powershell -Command "& { Invoke-WebRequest -Uri 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile '%~dp0NuGet\nuget.exe' }"
+if %errorlevel% neq 0 goto Error
+
+echo.
 echo Copying dependencies...
 robocopy "%~dp0Temp\CodeForPowerShell\Build\Modules\CodeForPowerShell.VisualStudio" "%~dp0PowerShell\CodeForPowerShell.VisualStudio" /s /purge
 if %errorlevel% gtr 7 goto Error

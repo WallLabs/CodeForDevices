@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PlatformShortName Condition="'$(Platform)' == 'Win32'">x86</PlatformShortName>
+    <PlatformShortName Condition="'$(Platform)' != 'Win32'">$(Platform)</PlatformShortName>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
+    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\CodeForDevices.WindowsUniversal.Hardware.winmd">
+      <Implementation>CodeForDevices.WindowsUniversal.Hardware.dll</Implementation>
+    </Reference>
+    <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\CodeForDevices.WindowsUniversal.Hardware.Buses.winmd">
+      <Implementation>CodeForDevices.WindowsUniversal.Hardware.dll</Implementation>
+    </Reference>
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\runtimes\win10-$(PlatformShortName)\native\CodeForDevices.WindowsUniversal.Hardware.dll" />
+  </ItemGroup>
+</Project>

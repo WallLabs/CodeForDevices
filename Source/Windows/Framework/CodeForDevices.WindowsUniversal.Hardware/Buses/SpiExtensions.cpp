@@ -7,7 +7,7 @@ using namespace winrt::Windows::Devices::Spi;
 
 namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementation
 {
-    Windows::Devices::Spi::SpiDevice SpiExtensions::Connect(uint32_t busNumber, uint32_t chipSelectLine, Windows::Devices::Spi::SpiMode const& mode, uint32_t dataBitLength, uint32_t clockFrequency, Windows::Devices::Spi::SpiSharingMode const& sharingMode)
+    Windows::Devices::Spi::SpiDevice SpiExtensions::Connect(int32_t busNumber, int32_t chipSelectLine, Windows::Devices::Spi::SpiMode const& mode, int32_t dataBitLength, int32_t clockFrequency, Windows::Devices::Spi::SpiSharingMode const& sharingMode)
     {
         // Validate
         if (busNumber < 0) throw hresult_invalid_argument(L"busNumber");

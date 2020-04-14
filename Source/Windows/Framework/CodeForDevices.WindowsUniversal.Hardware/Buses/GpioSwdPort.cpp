@@ -8,7 +8,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
 {
 #pragma region Lifetime
 
-    GpioSwdPort::GpioSwdPort(uint32_t busNumber, uint32_t clockPinNumber, uint32_t ioPinNumber)
+    GpioSwdPort::GpioSwdPort(int32_t busNumber, int32_t clockPinNumber, int32_t ioPinNumber)
     {
         // Validate
         if (busNumber < 0) throw hresult_invalid_argument(L"busNumber");
@@ -211,7 +211,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
     /// <summary>
     /// Reads multiple bytes from the SWD port.
     /// </summary>
-    Windows::Foundation::Collections::IVector<uint8_t> GpioSwdPort::ReadBytes()
+    com_array<uint8_t> GpioSwdPort::ReadBytes()
     {
         throw hresult_not_implemented();
     }

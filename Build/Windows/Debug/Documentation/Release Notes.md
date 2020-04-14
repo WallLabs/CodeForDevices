@@ -5,6 +5,7 @@
 * Refactored interfaces for better C++/WinRT array type standards compliance.
 * I2C bus implementation code complete, ready for internal testing.
 * Other buses still incomplete but should be quick to implement once I2C passes tests.
+* Public API uses only CLS compliant types (removal of unsigned integer except for byte representation).
 
 ## Version 1.0.1810.10### (2018.10.10)
 * Fixed Variables.cmd script dependency to ensure dependency update and build scripts initialize from any command prompt.

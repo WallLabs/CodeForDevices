@@ -95,7 +95,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <summary>
         /// Creates an instance using the specified GPIO pins.
         /// </summary>
-        GpioSwdPort(uint32_t busNumber, uint32_t clockPinNumber, uint32_t ioPinNumber);
+        GpioSwdPort(int32_t busNumber, int32_t clockPinNumber, int32_t ioPinNumber);
 
         /// <summary>
         /// Frees resources owned by this instance.
@@ -121,7 +121,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <summary>
         /// Reads multiple bytes from the SWD port.
         /// </summary>
-        IVector<uint8_t> ReadBytes();
+        com_array<uint8_t> ReadBytes();
 
         /// <summary>
         /// Writes one byte from the SWD port.

@@ -137,7 +137,7 @@ Commonly used to test register flags.
             <param name="mask">Index of the bit to read, zero based.</param>
             <returns>True when the result was positive (any bits in the mask were set).</returns>
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.WriteReadBytes(winrt.Windows.Devices.I2c.I2cDevice!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,winrt.array_view&lt;System.Byte!System.Runtime.CompilerServices.IsConst&gt;,System.UInt32)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.WriteReadBytes(winrt.Windows.Devices.I2c.I2cDevice!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,winrt.array_view&lt;System.Byte!System.Runtime.CompilerServices.IsConst&gt;,System.Int32)">
             <summary>
 Writes data then reads one or more bytes.
 </summary>
@@ -146,7 +146,7 @@ Writes data then reads one or more bytes.
             <param name="size">Amount of data to read.</param>
             <returns>Read data bytes.</returns>
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.WriteReadBytes(winrt.Windows.Devices.I2c.I2cDevice!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Byte,System.UInt32)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.WriteReadBytes(winrt.Windows.Devices.I2c.I2cDevice!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Byte,System.Int32)">
             <summary>
 Writes data then reads a single byte result.
 </summary>
@@ -171,7 +171,7 @@ Writes data then reads a single byte result.
             <param name="writeData">Data to write.</param>
             <returns>Read data byte.</returns>
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.ReadBytes(winrt.Windows.Devices.I2c.I2cDevice!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.UInt32)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.ReadBytes(winrt.Windows.Devices.I2c.I2cDevice!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32)">
             <summary>
 Reads one or more data bytes.
 </summary>
@@ -186,7 +186,7 @@ Reads one data byte.
             <param name="device">Device to use.</param>
             <returns>Read data byte.</returns>
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.Connect(System.UInt32,System.UInt32,winrt.Windows.Devices.I2c.I2cBusSpeed!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,winrt.Windows.Devices.I2c.I2cSharingMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.I2cExtensions.Connect(System.Int32,System.Int32,winrt.Windows.Devices.I2c.I2cBusSpeed!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,winrt.Windows.Devices.I2c.I2cSharingMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
             <summary>
 Connects to an I2C device if it exists.
 </summary>
@@ -252,7 +252,7 @@ then lowers the SWD_IO pin and performs another two SWD_CLK "idle" cycles.
 Frees resources owned by this instance.
 </summary>
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.GpioSwdPort.#ctor(System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.GpioSwdPort.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
 Creates an instance using the specified GPIO pins.
 </summary>
@@ -325,7 +325,7 @@ ARM SW-DP (Serial Wire Debug Port) bus/protocol implementation over two GPIO pin
             <see href="https://github.com/emlid/blackmagic/blob/feat/pi2/src/platforms/pi2/swdptap.c" />
             <see href="https://github.com/disk91/PySWD/blob/master/RpiGPIO.py#L195" />
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.SpiExtensions.Connect(System.UInt32,System.UInt32,winrt.Windows.Devices.Spi.SpiMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.UInt32,System.UInt32,winrt.Windows.Devices.Spi.SpiSharingMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.SpiExtensions.Connect(System.Int32,System.Int32,winrt.Windows.Devices.Spi.SpiMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Int32,System.Int32,winrt.Windows.Devices.Spi.SpiSharingMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
             <summary>
 Connects to an SPI device if it exists.
 </summary>
@@ -341,7 +341,7 @@ Connects to an SPI device if it exists.
 Extensions for work with SPI devices.
 </summary>
         </member>
-        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.GpioExtensions.Connect(System.UInt32,System.UInt32,winrt.Windows.Devices.Gpio.GpioPinDriveMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,winrt.Windows.Devices.Gpio.GpioSharingMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+        <member name="M:winrt.CodeForDevices.WindowsUniversal.Hardware.Buses.implementation.GpioExtensions.Connect(System.Int32,System.Int32,winrt.Windows.Devices.Gpio.GpioPinDriveMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,winrt.Windows.Devices.Gpio.GpioSharingMode!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
             <summary>
 Connects to a GPIO pin if it exists.
 </summary>

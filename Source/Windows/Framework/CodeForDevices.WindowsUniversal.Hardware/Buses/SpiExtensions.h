@@ -24,7 +24,7 @@ namespace winrt::CodeForDevices::WindowsUniversal::Hardware::Buses::implementati
         /// <param name="dataBitLength">Data length in bits.</param>
         /// <param name="clockFrequency">Frequency in Hz.</param>
         /// <returns>Device when the bus controller and device exist, otherwise null.</returns>
-        static Windows::Devices::Spi::SpiDevice Connect(uint32_t busNumber, uint32_t chipSelectLine, Windows::Devices::Spi::SpiMode const& mode, uint32_t dataBitLength, uint32_t clockFrequency, Windows::Devices::Spi::SpiSharingMode const& sharingMode);
+        static Windows::Devices::Spi::SpiDevice Connect(int32_t busNumber, int32_t chipSelectLine, Windows::Devices::Spi::SpiMode const& mode, int32_t dataBitLength, int32_t clockFrequency, Windows::Devices::Spi::SpiSharingMode const& sharingMode);
     };
 }
 
